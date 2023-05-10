@@ -1,120 +1,129 @@
 /* Estilos generales */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  /* Estilos de la barra superior */
-  header {
-    background-color: #333438;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  .tooth-link {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 20px solid #333438;
-    border-radius: 0 0 50% 50%;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
 
-  .logo img {
-    height: 40px;
-  }
-  
-  .login a {
-    padding: 10px 20px;
-    background-color: #24E8A6;
-    color: #000000;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  .carousel-container {
-    position: relative;
-    max-width: 100;
-    max-height: 500px;
-    margin: 0 auto;
-    overflow: hidden;
-    background-color: #333438;
-  }
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
-  
-  .carousel img {
-    width: 100%;
-    max-height: auto;
-    height: auto;
-  }
-  
-  .prev,
-  .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 24px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
-  /* Estilos de la sección de información de la aplicación */
-  .app-info {
-    padding: 40px 0;
-    text-align: center;
-  }
-  
-  .app-info h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .app-info p {
-    font-size: 16px;
-    margin-bottom: 30px;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  
-  /* Estilos del pie de página */
-  footer {
-    background-color: #f5f5f5;
-    padding: 20px;
-    text-align: center;
-  }
-  
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos de la barra superior */
+header {
+  background-color: #333438;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.tooth-link {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid #333438;
+  border-radius: 0 0 50% 50%;
+}
+
+
+.logo img {
+  height: 40px;
+}
+
+.login a {
+  padding: 10px 20px;
+  background-color: #24E8A6;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.login a:hover {
+  background-color: #03a1f8;
+  color:#24e8a6;
+}
+
+.carousel-container {
+  position: relative;
+  max-width: 100;
+  max-height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #333438;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  max-height: auto;
+  height: auto;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+/* Estilos de la sección de información de la aplicación */
+.app-info {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.app-info h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.app-info p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #24E8A6;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.cta-button:hover {
+  background-color: #03a1f8;
+  color:#24e8a6;
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+}
