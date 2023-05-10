@@ -1,0 +1,81 @@
+<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>Formulario de Acceso</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" content="Videojuegos & Desarrollo" />
+    <meta
+      name="description"
+      content="Muestra de un formulario de acceso en HTML y CSS"
+    />
+    <meta name="keywords" content="Formulario Acceso, Formulario de LogIn" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Overpass&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Link hacia el archivo de estilos css -->
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <style>
+    .warning {
+      background-color: lightcoral;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <div id="contenedor">
+      <div id="central">
+        <div id="login">
+            <div class="logo">
+                <img src="assets/logo.png" alt="LOGO">
+            </div>
+          <div class="titulo">
+            <h3>Incio de sesión</h3>
+          </div>
+          <div></div>
+          <form action="" id="loginform" method="post">
+            <label style="color: white">Usuario</label>
+            <input
+              type="text"
+              class="inputLog"
+              name="usuario"
+              placeholder="Usuario"
+            />
+            <label style="color: white">Contraseña</label>
+            <input
+              type="password"
+              class="inputLog"
+              placeholder="Contraseña"
+              name="password"
+            />
+
+            <button type="submit" title="Ingresar" name="OK" value="LOGIN">
+              Entrar
+            </button>
+          </form>
+          <br />
+          <a href="#" style="color: white; text-decoration: none"
+            >¿No tienes Cuenta? Registrate</a
+          >
+          <!--<div class="pie-form">
+                        
+                        <a href="#">¿No tienes Cuenta? Registrate</a>
+                    </div>-->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
