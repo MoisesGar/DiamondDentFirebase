@@ -91,10 +91,10 @@ img {
 
 #login input::placeholder {
     font-family: 'Overpass', sans-serif;
-    color: #E4E4E4;
+    color: rgba(0, 0, 0, 0.421);
 }
 
-#login button {
+.buttonLogin {
     font-family: 'Overpass', sans-serif;
     font-size: 110%;
     color:#000000;
@@ -111,9 +111,9 @@ img {
     margin-top: 10px;
 }
 
-#login button:hover {
+.buttonLogin:hover {
     background-color: #03a1f8;
-    color:#24e8a6;
+    color: #24e8a6;
 }
 
 .pie-form {

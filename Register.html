@@ -1,90 +1,123 @@
-<!-- Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser descendientes de este elemento. -->
+<!DOCTYPE html>
 <html lang="es">
-    
-    <head>
-        <meta charset="utf-8">
-        
-        <title> Registro </title>    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Videojuegos & Desarrollo">
-        <meta name="description" content="Muestra de un formulario de acceso en HTML y CSS">
-        <meta name="keywords" content="Formulario Acceso, Formulario de Register">
-        
-        <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet"> 
-        <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
-        
-        <!-- Link hacia el archivo de estilos css -->
-        <link rel="stylesheet" href="./css/Register.css">
-        <link rel="stylesheet" href="main.css" />
-    </head>
+  <head>
+    <meta charset="utf-8" />
 
-    <style>
-        .warning{
-            background-color: lightcoral;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Videojuegos & Desarrollo" />
+    <meta
+      name="description"
+      content="Muestra de un formulario de acceso en HTML y CSS"
+    />
+    <meta name="keywords" content="Formulario Acceso, Formulario de Register" />
 
-    <body>
-        <div id="contenedor">
-            <div id="central">
-                <div id="Register">
-        
-                    <!-- Logo -->
-                    <div class="logo" >
-                            <img class="rounded"  src="./assets/logo.png" />
-                    </div>
-                    
-                    <!-- Titulo -->
-                    <div class="titulo">
-                        <h1>Registro</h1>
-                    </div>
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Overpass&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-                    <!-- Subtitulo -->
-                    <div class="subtitulo">
-                        <h3>Crea Tu Cuenta</h3>
-                    </div>
-                    <br>
+    <!-- Link hacia el archivo de estilos css -->
+    <link rel="stylesheet" href="./css/Register.css" />
+  </head>
 
-                    <div>
-                    <?php
-                        include("conexion_bd.php");
-                        include("controlador.php");
-                    ?>  
-                    </div>   
+  <body>
+    <div id="contenedor">
+      <div id="central">
+        <div id="Register">
+          <!-- Logo -->
+          <div class="logo">
+            <img class="rounded" src="./assets/logo.png" />
+          </div>
 
-                    <!-- Email addres - Password -->
-                    <form action="" id="Registerform" method="post">
+          <!-- Subtitulo -->
+          <div class="titulo">
+            <h3>Crear Cuenta</h3>
+          </div>
+          <br />
+          <div>
+            <!-- User - Password -->
+            <label style="color: white">Usuario</label>
+            <input
+              type="text"
+              class="inputLog"
+              name="username"
+              id="username"
+              placeholder="Usuario"
+            />
 
-                        <label style="color: white;">Correo Electrónico</label>
-                        <input type="text" class="inputLog" name="usuario" placeholder="Correo Electrónico" >
+            <label style="color: white">Correo Electronico</label>
+            <input
+              type="text"
+              class="inputLog"
+              id="email"
+              placeholder="Email@sorfetch.mx"
+              name="email"
+            />
 
-                        <label style="color: white;">Contraseña</label>
-                        <input type="password" class="inputLog" placeholder="Contraseña" name="Contraseña" >
+            <label style="color: white">Contraseña</label>
+            <input
+              type="password"
+              class="inputLog"
+              id="password"
+              placeholder="Contraseña"
+              name="password"
+            />
 
-                        <label style="color: white;">Repetir Contraseña</label>
-                        <input type="password" class="inputLog" placeholder="Repetir Contraseña" name="Repetir Contraseña" >
+            <!-- Login Button -->
+            <input
+              class="RegisterButton"
+              type="submit"
+              title="Registrar"
+              id="signUp"
+              name="OK"
+              value="Registrar"
+            />
+          </div>
 
-                        <!-- Login Button -->
-                        <button type="submit" title="Ingresar" name="OK" value="REGISTER">Registrate</button>
-                    </form>
-
-                    <br>
-                    <!-- Don't have an account? -->
-                    <a href="registrar.php" style="color: white; text-decoration: none;" >Ya tienes una cuenta?</a>
-                    <!--<div class="pie-form">
-                        
-                        <a href="#">¿No tienes Cuenta? Registrate</a>
-                    </div>-->
-                </div>
-            </div>
+          <br />
+          <!-- Don't have an account? -->
+          <a class="sesionLink" href="./login.html" >Ya tienes una cuenta?</a>
         </div>
-       
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"> 
-        </script>
-    </body>
+      </div>
+    </div>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+      import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+      //     import { initializeApp } from "firebase/app";
+      // import { getDatabase } from "firebase/database";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCHTLjpLCsO-Zsl7my0ZIbO6wJrI61ye5g",
+        authDomain: "dimonddent-68852.firebaseapp.com",
+        databaseURL: "https://dimonddent-68852-default-rtdb.firebaseio.com",
+        projectId: "dimonddent-68852",
+        storageBucket: "dimonddent-68852.appspot.com",
+        messagingSenderId: "456359697128",
+        appId: "1:456359697128:web:7eec13204e979d8792475d",
+        measurementId: "G-7FSHC6LKFF",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const database = getDatabase(app);
+    </script>
+    <script src="JS/register.js"></script>
+  </body>
 </html>
