@@ -131,12 +131,13 @@
         // Signed in
         const user = userCredential.user;
 
-        set (ref(database, 'users/' + user.uid),{
-          username: username,
-          email: email
-        })
-        alert('Registro exitoso');
-        cambiarLogin('./login.html');
+          set(ref(database, 'users/' + user.uid), {
+            username: username,
+            email: email,
+          });
+
+          alert('Registro exitoso');
+          cambiarLogin('./login.html');
         // ...
       })
       .catch((error) => {
