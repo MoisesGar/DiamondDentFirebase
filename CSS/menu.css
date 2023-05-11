@@ -1,0 +1,125 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333438;
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00f;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 10px;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+    margin-left: auto;
+  }
+  
+  nav li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+  }
+  
+  .user {
+    position: relative;
+  }
+  
+  .user input[type="checkbox"] {
+    display: none;
+  }
+  
+  .arrow {
+    width: 20px;
+    height: 20px;
+    margin-right: 30px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .options {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    width: 150px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    display: none;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    text-decoration: none;
+  }
+  
+  .user input[type="checkbox"]:checked ~ .arrow {
+    transform: rotate(135deg);
+  }
+  
+  .user input[type="checkbox"]:checked ~ .options {
+    display: block;
+  }
+  
+  .logout {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    nav {
+      margin-top: 10px;
+      height: auto;
+    }
+    
+    nav li:last-child {
+      margin-left: 0;
+    }
+    
+    .user {
+      margin-top: 10px;
+    }
+    
+    .options {
+      right: 0;
+      top: 40px;
+    }
+  }
+  

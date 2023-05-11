@@ -86,17 +86,19 @@
         </div>
       </div>
     </div>
-
+    
+    <script src="JS/register.js"></script>
     <script type="module">
       // Import the functions you need from the SDKs you need
+      import cambiarLogin from './JS/register.js';
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
       import {
         getAuth,
         createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-      import { getDatabase } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-      //     import { initializeApp } from "firebase/app";
-      // import { getDatabase } from "firebase/database";
+      import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -115,9 +117,46 @@
 
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
       const database = getDatabase(app);
+      const auth = getAuth();
+
+    signUp.addEventListener('click',(e) =>{
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let username = document.getElementById('username').value;
+
+    //Auth
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+
+        set (ref(database, 'users/' + user.uid),{
+          username: username,
+          email: email
+        })
+        alert('Registro exitoso');
+        cambiarLogin('./login.html');
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        if(!email && !password){alert('Campos vacios')
+        }else if (errorMessage == 'Firebase: Error (auth/email-already-in-use).'){
+          alert('Email en uso')
+        }else if (errorMessage == 'Firebase: Error (auth/invalid-email).' && email){
+          alert('Introduzca un email valido')
+        }else if (errorMessage =='Firebase: Error (auth/missing-password).' && !password){ 
+          alert('Contraseña Vacia')
+        }else if (errorMessage =='Firebase: Password should be at least 6 characters (auth/weak-password).' && password){ 
+          alert('Contraseña muy debil, pruebe con mas de 6 caracteres')
+        }else {
+          alert(errorMessage);
+        }
+        // ..
+      });
+})
     </script>
-    <script src="JS/register.js"></script>
   </body>
 </html>
