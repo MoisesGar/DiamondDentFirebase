@@ -12,14 +12,27 @@
 <body>
     <header>
         <div class="logo">
-            <a href="#" class="tooth-link"><i class="fas fa-tooth fa-3x"></i></a>
+          <img class="rounded" src="./assets/Logo-v2.png" />
         </div>
         <nav>
-          <ul>
-            <li><a href="#">Citas</a></li>
-            <li><a href="#">Pagos</a></li>
-            <li><a href="#">Historial</a></li>
-          </ul>
+          <ul class="menu-horizontal">
+            <li><a href="#">Inicio</a></li>
+            <li>
+              <a href="#">Citas</a>
+              <ul class="menu-vertical">
+                <li><a href="curso-html.html">Agendar Citas</a></li>
+                <li><a href="#">Reagendar Citas</a></li>
+                <li><a href="#">Cancelar Citas</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Historial Clínico</a>
+              <ul class="menu-vertical">
+                <li><a href="#">Anual</a></li>
+                <li><a href="#">Mensual</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contacto</a></li>
         </nav>
         <div class="user">
           <input type="checkbox" id="toggleOptions">
