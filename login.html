@@ -73,7 +73,7 @@
         getAuth,
         signInWithEmailAndPassword,
       } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
-      import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+      import { getDatabase, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
@@ -95,7 +95,10 @@
       const app = initializeApp(firebaseConfig);
       const database = getDatabase(app);
       const auth = getAuth();
+      const user = auth.currentUser; 
+      const starCountRef = ref(database, 'users/' + user.uid );
 
+      //EVENTO CLICK SOBRE BOTON INICIAR SESION
       signIn.addEventListener('click', (e) =>{
         let email = document.getElementById('email').value;
         let password = document.getElementById('password').value;
@@ -105,10 +108,11 @@
            // Signed in
            const user = userCredential.user;
            const dt = new Date();
-
+              //UPDATE AL ELEMENTO LASTLOGIN DENTRO DE LA BD DE FIREBASE
            update(ref(database, 'users/' + user.uid), {
             lastLogin: dt,
           });
+
           setTimeout(() => {
             cambiarLogin('./menu.html');
             console.warn('LOGIN')
@@ -117,10 +121,15 @@
          })
          .catch((error) => {
             const errorCode = error.code;
-           const errorMessage = error.message;
-           alert(errorMessage)
-  });
+            const errorMessage = error.message;
+            alert(errorMessage)
+          });
       })
+
+      onValue(starCountRef, (snapshot) => {
+        const data = snapshot.val();
+        updateStarCount(postElement, data);
+      });
   </script>
 </html>
 

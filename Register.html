@@ -127,6 +127,7 @@
     //Auth
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        
         // Signed in
         const {user} = userCredential;
         console.log(user.uid)
@@ -134,6 +135,7 @@
             username: username,
             email: email,
             lastLogin: "",
+            suscription: "free"
           });
 
           setTimeout(() => {
