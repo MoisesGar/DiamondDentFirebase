@@ -14,7 +14,10 @@ signIn.addEventListener('click', (e) =>{
     const dt = getDate();
     console.log(password.value, email.value, dt)
     console.log('enviado')
-    signInF(email.value, password.value, dt)
+    let user = signInF(email.value, password.value, dt);
+    setTimeout(() => {
+        console.log(user);
+    }, 1000);
 })
 
 
