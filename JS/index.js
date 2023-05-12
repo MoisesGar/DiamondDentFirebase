@@ -11,17 +11,12 @@ window.addEventListener('DOMContentLoaded', () =>{
 
 signIn.addEventListener('click', (e) =>{
     e.preventDefault(); 
-    const dt = getDate();
-    console.log(password.value, email.value, dt)
+    console.log(password.value, email.value)
     console.log('enviado')
-    let user = signInF(email.value, password.value, dt);
+    let user = signInF(email.value, password.value);
     setTimeout(() => {
         console.log(user);
     }, 1000);
 })
 
 
-const getDate = () =>{
-    const dt = new Date();
-    return dt;
-}

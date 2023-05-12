@@ -4,7 +4,7 @@ console.log('works');
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import {getAuth,signInWithEmailAndPassword, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
 import { getDatabase, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
-import { getFirestore,collection , addDoc, setDoc, doc} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
+import { getFirestore,collection , addDoc, setDoc, doc, getDocs, getDoc, updateDoc} from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -41,7 +41,7 @@ createUserWithEmailAndPassword(auth, email, password)
     // Signed in
     const {user} = userCredential;
     console.log(typeof(user.uid), user.uid)
-    // addDoc(collection (db, 'users'),{    //addDoc crea la colleccion y pone un id aleatorio en caso de que no tengamos algo importante de id
+    // addDoc(collection (db, 'users'),{    //addDoc actualiza o crea la colleccion y pone un id aleatorio en caso de que no tengamos algo importante de id
       //creamos la referencia de la bd
     const userRef = doc(db, 'users',user.uid); 
     setDoc(userRef,{
@@ -55,7 +55,6 @@ createUserWithEmailAndPassword(auth, email, password)
         changeW('../login.html');
       }, 200);
     // ...
-    // return db.collection('users').doc(user.uid)
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -76,17 +75,25 @@ createUserWithEmailAndPassword(auth, email, password)
 }
 
 //funtion login
-export const signInF = (email,password, dt) => {
+export const signInF = (email,password) => {
   signInWithEmailAndPassword(auth, email, password)
 
-  .then((userCredential) => {
+  .then(async (userCredential) => {
     // Signed in
     const {user} = userCredential;
-    update(ref(database, 'users/' + user.uid), {
-      lastLogin: dt,
-    });
+    // update(ref(database, 'users/' + user.uid), {
+    //   lastLogin: dt,
+    // });
     console.log('Logged')
     console.log(user);
+    const data = await getoneElement(doc(db, "users", user.uid));
+    console.log(data)
+    if(data.lastLogin.length > 0){
+      console.log('ve al menu')
+    }else{
+      console.log('registra tus datos')
+    }
+    updateLastLogin(user.uid)
   })
   .catch((error) =>{
     const {code} = error;
@@ -94,6 +101,15 @@ export const signInF = (email,password, dt) => {
     alert(message);
   })
 } 
+//Update for lastlogin date
+const updateLastLogin = async(user,) => {
+  const dt = getDate();
+  console.log(dt);
+  const userRef = doc(db, 'users',user); 
+  updateDoc(userRef,{
+          lastLogin: "",
+        })
+}
 //funtion logout
 export const signOutF = () =>{
   console.log('logged out');
@@ -103,9 +119,31 @@ export const currentUser =()=>{
 
 }
 
+//funtion getoneElement
+export const getoneElement = async (Ref) => {
+
+const docRef = Ref; //doc(db, "cities", "SF");
+const docSnap = await getDoc(docRef);
+
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+  return docSnap.data();
+} else {
+  // docSnap.data() will be undefined in this case
+  console.log("No such document!");
+}
+}
+
 //funtion change window
 const changeW = (a) =>{
     window.location.href = a;
+}
+
+//funtion getdate
+
+const getDate = () =>{
+  const dt = new Date();
+  return dt;
 }
 
 // signUp.addEventListener('click',(e) =>{
