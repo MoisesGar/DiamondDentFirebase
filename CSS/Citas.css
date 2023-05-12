@@ -21,6 +21,7 @@ nav{
 	list-style: none;
 	display: flex;
 	justify-content: space-around;
+  
 }
 .menu-horizontal > li > a{
 	display: block;
@@ -174,22 +175,21 @@ img {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+    background-image: linear-gradient(-225deg, #222222 0%, #222222 52%, #222222 100%);
     min-height: 100%;
     padding-bottom: 5rem;
   }
+
   .titulo {
     font-weight: bold;
     font-size: 3rem;
-    text-transform: uppercase;
     color: white;
   }
+
   .container {
       background-color: white;
   }
-  header {
-    margin-top: 3rem;
-  }
+ 
   header h1 {
     color: white;
   }
@@ -215,7 +215,8 @@ img {
   textarea {
       height: 200px!important;
   }
-  
+
+
   svg {
     width: 21px;
   }
