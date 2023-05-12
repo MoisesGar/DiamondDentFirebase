@@ -27,7 +27,8 @@ const app = initializeApp(firebaseConfig);
 // const database = getDatabase(app);
 const db = getFirestore(app);
 const auth = getAuth();
-const user = auth.currentUser; 
+// const user = auth.currentUser;
+let currenUser; 
 
 
 
@@ -90,10 +91,14 @@ export const signInF = (email,password) => {
     console.log(data)
     if(data.lastLogin.length > 0){
       console.log('ve al menu')
+      changeW('../menu.html');
     }else{
       console.log('registra tus datos')
+      changeW('../registerdata.html');
     }
     updateLastLogin(user.uid)
+    currenUser = data;
+    console.log(currenUser);
   })
   .catch((error) =>{
     const {code} = error;
@@ -107,7 +112,7 @@ const updateLastLogin = async(user,) => {
   console.log(dt);
   const userRef = doc(db, 'users',user); 
   updateDoc(userRef,{
-          lastLogin: "",
+          lastLogin: dt,
         })
 }
 //funtion logout

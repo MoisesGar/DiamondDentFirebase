@@ -93,6 +93,7 @@
             signOut(auth).then(() => {
                   // Sign-out successful.
                   alert('Sesion Cerrada')
+                  window.location.href('./login.html');
                   setTimeout(() => {
                     console.log('exit');
                   }, 200);
