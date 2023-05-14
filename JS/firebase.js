@@ -27,7 +27,8 @@ const app = initializeApp(firebaseConfig);
 // const database = getDatabase(app);
 const db = getFirestore(app);
 const auth = getAuth();
-const user = auth.currentUser; 
+// const user = auth.currentUser;
+let currenUser; 
 
 
 
