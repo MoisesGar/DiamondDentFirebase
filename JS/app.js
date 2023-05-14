@@ -222,3 +222,8 @@ function cargarEdicion(cita) {
     editando = true;
 
 }
+
+logOut.addEventListener('click', (e) =>{
+        window.location.href= './login.html';
+
+  })

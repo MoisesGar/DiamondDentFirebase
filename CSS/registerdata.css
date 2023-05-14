@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: #292a2d;
+    font-size: large;
+}
+
+.navigation {
+    height: 50px;
+    background-color: #333;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+  .form-container {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin-top: 50px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #24e8a6;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #03a1f8;
+    color: white;
+  }
+  

@@ -90,18 +90,19 @@
 
         logOut.addEventListener('click', (e) =>{
 
-            signOut(auth).then(() => {
-                  // Sign-out successful.
-                  alert('Sesion Cerrada')
-                  setTimeout(() => {
-                    console.log('exit');
-                  }, 200);
-                }).catch((error) => {
-                  // An error happened.
-                  const {code} =error;
-                    const {message} = code;
-                    alert(message);
-                });
+            // signOut(auth).then(() => {
+            //       // Sign-out successful.
+            //       alert('Sesion Cerrada')
+            //       setTimeout(() => {
+            //         console.log('exit');
+            //       }, 200);
+            //     }).catch((error) => {
+            //       // An error happened.
+            //       const {code} =error;
+            //         const {message} = code;
+            //         alert(message);
+            //     });
+                window.location.href= './login.html';
   
           })
   </script>
