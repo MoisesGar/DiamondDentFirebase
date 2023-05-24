@@ -88,6 +88,19 @@ img {
     width: auto;
     object-fit: contain;
 }
+
+  .calendario {
+    display: flex;
+    justify-content: center;
+    width: 0px;
+    height: 900px;
+    margin-bottom: 700px;
+}
+.calendario img {
+  height: 700px;
+  width: auto;
+  object-fit: contain;
+}
   
   .circle {
     width: 40px;
