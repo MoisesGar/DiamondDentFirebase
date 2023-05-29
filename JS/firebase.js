@@ -75,6 +75,7 @@ export const signInF = (email,password) => {
     console.log(user);
     const data = await getoneElement(doc(db, "users", user.uid));
     console.log(data)
+<<<<<<< Updated upstream
 
     updateLastLogin(user.uid);
 
@@ -87,6 +88,16 @@ export const signInF = (email,password) => {
         changeW('../menu.html');
       }
     }, 500);
+=======
+    if(data.lastLogin.length > 0){
+      console.log('ve al menu')
+      changeW("../menu.html")
+    }else{
+      console.log('registra tus datos')
+      changeW("../menu.html")
+    }
+    updateLastLogin(user.uid)
+>>>>>>> Stashed changes
   })
   .catch((error) =>{
     const {code, message} = error;
