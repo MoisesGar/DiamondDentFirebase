@@ -27,7 +27,7 @@ const app = initializeApp(firebaseConfig);
 // const database = getDatabase(app);
 const db = getFirestore(app);
 const auth = getAuth();
-// const user = auth.currentUser;
+const user = auth.currentUser;
 let currenUser; 
 
 
@@ -49,8 +49,17 @@ createUserWithEmailAndPassword(auth, email, password)
       uid: user.uid,
       username: username,
       email: email,
-      lastLogin: "",
+      lastLogin:"",
       lastLogOut:"",
+      profilePht:"",
+    });
+    const bookingsRef = doc(db, 'bookings', user.uid); 
+    await setDoc(bookingsRef,{
+      Bid: '0',
+      username:"",
+      date:"",
+      hr:"",
+      description:"",
     });
         console.log('Registro exitoso');
         changeW('../login.html');
@@ -78,7 +87,7 @@ export const signInF = (email,password) => {
     console.log(data)
 
     updateLastLogin(user.uid);
-
+    localStorage.setItem('user',`${user.uid}`);
     setTimeout(() => {
       if(data.lastLogin.length > 0){
         console.log('ve al menu')
@@ -103,6 +112,21 @@ const updateLastLogin = (user) => {
           lastLogin: dt,
         })
 }
+//Booking
+export const Booking = (user) => {
+  const {id,nombre,fecha,hora,motivo} = user;
+  const dt = getDate();
+  console.log(dt);
+  const userRef = doc(db, 'bookings', localStorage.getItem('user'));  
+  updateDoc(userRef,{
+    Bid:id,
+    username:nombre,
+    date:fecha,
+    hr:hora,
+    description:motivo,
+  })
+}
+
 //funtion logout
 export const signOutF = () =>{
   console.log('logged out');

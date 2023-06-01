@@ -1,3 +1,5 @@
+import {Booking} from './firebase.js'
+
 //Campos del formulario
 const nombreInput = document.querySelector('#nombre');
 const fechaInput = document.querySelector('#fecha');
@@ -157,7 +159,7 @@ function nuevaCita(e) {
         ui.imprimirAlerta('Guardado Correctamente');
 
         formulario.querySelector('button[type="submit"]').textContent = 'Crear Cita';
-
+        Booking(citaObj);
         editando = false;
 
     } else {
@@ -171,6 +173,8 @@ function nuevaCita(e) {
 
         // Mostrar mensaje de que todo esta bien...
         ui.imprimirAlerta('Se agregó correctamente')
+        console.log(citaObj);
+        Booking(citaObj);
     }
 
 
@@ -198,6 +202,7 @@ function eliminarCita(id) {
     administrarCitas.eliminarCita(id);
 
     ui.imprimirCitas(administrarCitas)
+    Booking(citaObj);
 }
 
 function cargarEdicion(cita) {
@@ -220,6 +225,9 @@ function cargarEdicion(cita) {
     formulario.querySelector('button[type="submit"]').textContent = 'Guardar Cambios';
 
     editando = true;
+    console.log(cita)
+    console.log(citaObj)
+
 
 }
 

@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () =>{
     console.log('working loaded')
 });
 
-signIn.addEventListener('click', (e) =>{
+signIn.addEventListener('click', async(e) =>{
     e.preventDefault(); 
     console.log(password.value, email.value)
     console.log('enviado')
