@@ -54,7 +54,7 @@
     <img src="./assets/calendario-v2.png" />
   </div>
 </body>
-
+<script src="./JS/menu.js" type="module"></script>
 <script type="module">
     // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
@@ -85,35 +85,34 @@
       const auth = getAuth();
       const user = auth.currentUser; 
 
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              // User is signed in, see docs for a list of available properties
-              // https://firebase.google.com/docs/reference/js/firebase.User
-              const uid = user.uid;
-              // ...
-            } else {
-                // User is signed out
-                console.log("User is signed out")
-                // ...
-            }
-        });
+      // onAuthStateChanged(auth, (user) => {
+      //     if (user) {
+      //         // User is signed in, see docs for a list of available properties
+      //         // https://firebase.google.com/docs/reference/js/firebase.User
+      //         const uid = user.uid;
+      //         // ...
+      //       } else {
+      //           // User is signed out
+      //           console.log("User is signed out")
+      //           // ...
+      //       }
+      //   });
 
-        logOut.addEventListener('click', (e) =>{
+        // logOut.addEventListener('click', (e) =>{
 
-            // signOut(auth).then(() => {
-            //       // Sign-out successful.
-            //       alert('Sesion Cerrada')
-            //       setTimeout(() => {
-            //         console.log('exit');
-            //       }, 200);
-            //     }).catch((error) => {
-            //       // An error happened.
-            //       const {code} =error;
-            //         const {message} = code;
-            //         alert(message);
-            //     });
-                window.location.href= './login.html';
-  
-          })
+        //     // signOut(auth).then(() => {
+        //     //       // Sign-out successful.
+        //     //       alert('Sesion Cerrada')
+        //     //       setTimeout(() => {
+        //     //         console.log('exit');
+        //     //       }, 200);
+        //     //     }).catch((error) => {
+        //     //       // An error happened.
+        //     //       const {code} =error;
+        //     //         const {message} = code;
+        //     //         alert(message);
+        //     //     });
+        //         window.location.href= './login.html';
+        //   })
   </script>
 </html>

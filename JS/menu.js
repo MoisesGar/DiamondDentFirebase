@@ -12,3 +12,10 @@
 //         // ..
 //       });
 // })
+import {changeW} from './firebase.js';
+const logOutBtn = document.getElementById('logOut');
+
+logOutBtn.addEventListener('click', () =>{
+    console.log('click');
+    changeW('./login.html')
+})
